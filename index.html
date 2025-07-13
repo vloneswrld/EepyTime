@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sleepy Time, My Love</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: linear-gradient(to bottom, #0c0f3a, #1b1b42);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: #ffffff;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .stars span {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: twinkle 2s infinite ease-in-out alternate;
+    }
+
+    @keyframes twinkle {
+      from { transform: scale(1); opacity: 0.4; }
+      to { transform: scale(1.5); opacity: 1; }
+    }
+
+    .letter {
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 25px;
+      padding: 30px 25px;
+      width: 90vw;
+      max-width: 600px;
+      max-height: 90vh;
+      text-align: center;
+      animation: fadeIn 2s ease;
+      box-shadow: 0 0 30px rgba(255,255,255,0.08);
+    }
+
+    .letter h1 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #ffd6f3;
+    }
+
+    .letter p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #fceaff;
+      white-space: pre-wrap;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media screen and (max-width: 600px) {
+      .letter {
+        padding: 20px 15px;
+      }
+
+      .letter h1 {
+        font-size: 1.5rem;
+      }
+
+      .letter p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars" id="stars"></div>
+
+  <div class="letter">
+    <h1>Sleepy Time Letter 💤</h1>
+    <p>
+My love,
+
+I know you’re probably tired right now… maybe even reading this with sleepy eyes.
+
+And I just wanted to say: if I could, I’d be right beside you. I’d tuck you in, kiss your forehead, and whisper every reason why I love you until you drifted off.  
+
+This past year has been filled with so much. We’ve laughed, we’ve grown, we’ve overcome things we didn’t think we could. And through it all… we still found our way back to each other.  
+
+That’s why even in the quietest moments—like this one—I feel so full of love.  
+You’re my peace, my person, my always.  
+
+So close your eyes, baby. I’m right here.  
+In your heart. In your dreams.  
+And in every tomorrow we get to wake up together in.  
+
+Happy anniversary.  
+I love you endlessly.  
+
+— your sleepy girl 💗
+    </p>
+  </div>
+
+  <script>
+    const starCount = 100;
+    const starContainer = document.getElementById("stars");
+
+    for (let i = 0; i < starCount; i++) {
+      const star = document.createElement("span");
+      const size = Math.random() * 2 + 1;
+      const duration = Math.random() * 2 + 2;
+      star.style.width = `${size}px`;
+      star.style.height = `${size}px`;
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.animationDuration = `${duration}s`;
+      star.style.opacity = `${0.2 + Math.random() * 0.8}`;
+      starContainer.appendChild(star);
+    }
+  </script>
+</body>
+</html>
